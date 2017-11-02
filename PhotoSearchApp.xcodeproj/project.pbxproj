@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A33F2EC11FABCBEF002F45D0 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33F2EC01FABCBEF002F45D0 /* CustomCell.swift */; };
 		A3D34CB61FAB7A9D00201FD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D34CB51FAB7A9D00201FD7 /* AppDelegate.swift */; };
 		A3D34CB81FAB7A9D00201FD7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D34CB71FAB7A9D00201FD7 /* ViewController.swift */; };
 		A3D34CBB1FAB7A9D00201FD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3D34CB91FAB7A9D00201FD7 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A33F2EC01FABCBEF002F45D0 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		A3D34CB21FAB7A9D00201FD7 /* PhotoSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3D34CB51FAB7A9D00201FD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3D34CB71FAB7A9D00201FD7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			children = (
 				A3D34CB51FAB7A9D00201FD7 /* AppDelegate.swift */,
 				A3D34CB71FAB7A9D00201FD7 /* ViewController.swift */,
+				A33F2EC01FABCBEF002F45D0 /* CustomCell.swift */,
 				A3D34CB91FAB7A9D00201FD7 /* Main.storyboard */,
 				A3D34CBF1FAB7A9D00201FD7 /* Assets.xcassets */,
 				A3D34CC11FAB7A9E00201FD7 /* LaunchScreen.storyboard */,
@@ -264,6 +267,7 @@
 			files = (
 				A3D34CB81FAB7A9D00201FD7 /* ViewController.swift in Sources */,
 				A3D34CB61FAB7A9D00201FD7 /* AppDelegate.swift in Sources */,
+				A33F2EC11FABCBEF002F45D0 /* CustomCell.swift in Sources */,
 				A3D34CBE1FAB7A9D00201FD7 /* PhotoSearchApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
