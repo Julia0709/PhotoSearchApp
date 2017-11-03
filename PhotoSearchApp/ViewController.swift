@@ -19,19 +19,24 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     @IBAction func searchButton(_ sender: UIButton) {
         self.photos = []
         keyword = searchTextField.text!
-        FlickrAPI.getPhotos(keyword: keyword) { (photos) in
-            self.photos = photos
-            self.collectionView.reloadData()
-        }
+        loadColectionView(keyword: keyword)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Photos"
-
+        
+        loadColectionView(keyword: keyword)
+    }
+    
+    // Load or update collection view
+    func loadColectionView(keyword: String) {
         FlickrAPI.getPhotos(keyword: keyword) { (photos) in
             self.photos = photos
             self.collectionView.reloadData()
+            
+            // Reset scroll
+            self.collectionView.contentOffset = CGPoint(x: 0, y: 0)
         }
     }
     
@@ -47,7 +52,10 @@ class ViewController: UIViewController, UICollectionViewDataSource {
 
     // Display each cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell:CustomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! CustomCell
+        let cell:CustomCell =
+            collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath)
+            as! CustomCell
+        
         let photo = photos[indexPath.row]
         
         // title
@@ -55,8 +63,7 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         
         // imageView
         cell.imageView.image = UIImage(named: "no_image.png")
-        let imageUrl = Generaters.generateImageUrl(photo: photo, size: "q")
-        let url = URL(string: imageUrl)
+        let url = URL(string: Generaters.generateImageUrl(photo: photo, size: "q"))
         if url != nil {
             let data = try? Data(contentsOf: url!)
             cell.imageView.image = UIImage(data: data!)!
