@@ -9,8 +9,11 @@
 import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource {
-    var keyword: String = "apple"
+    var keyword: String = "maple"
     var photos: [Photo] = []
+    var selectedPhoto: Photo?
+    var selectedPosition: Int?
+    
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchTextField: UITextField!
@@ -40,6 +43,20 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         }
     }
     
+    // When a button on a cell is selected
+    func onCellTapped(position: Int) {
+        // Set selected menu data
+        selectedPhoto = photos[position]
+        
+        if selectedPhoto != nil {
+            // Go to recipe view and pass recipe data
+            let storyboard: UIStoryboard = self.storyboard!
+            let detailView = storyboard.instantiateViewController(withIdentifier: "detail") as! DetailViewController
+            detailView.selectedPhoto = selectedPhoto
+            self.navigationController?.pushViewController(detailView, animated: true)
+        }
+    }
+    
     // Number of sections
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
@@ -63,6 +80,7 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         
         // imageView
         cell.imageView.image = UIImage(named: "no_image.png")
+        // q: 150x150
         let url = URL(string: Generaters.generateImageUrl(photo: photo, size: "q"))
         if url != nil {
             let data = try? Data(contentsOf: url!)
