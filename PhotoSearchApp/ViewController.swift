@@ -9,15 +9,21 @@
 import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource {
-    @IBOutlet weak var collectionView: UICollectionView!
-
     var photos: [Photo] = []
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var searchButton: UIButton!
+    
+    @IBAction func searchButton(_ sender: UIButton) {
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Photos"
 
-        FlickrAPI.getPhotos { (photos) in
+        let keyword = "kitty"
+        FlickrAPI.getPhotos(keyword: keyword) { (photos) in
             self.photos = photos
             self.collectionView.reloadData()
         }
