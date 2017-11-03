@@ -22,6 +22,9 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     @IBAction func searchButton(_ sender: UIButton) {
         self.photos = []
         keyword = searchTextField.text!
+        guard keyword != "" else {
+            return
+        }
         loadColectionView(keyword: keyword)
     }
 
@@ -51,7 +54,8 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         if selectedPhoto != nil {
             // Go to recipe view and pass recipe data
             let storyboard: UIStoryboard = self.storyboard!
-            let detailView = storyboard.instantiateViewController(withIdentifier: "detail") as! DetailViewController
+            let detailView = storyboard.instantiateViewController(withIdentifier: "detail")
+                             as! DetailViewController
             detailView.selectedPhoto = selectedPhoto
             self.navigationController?.pushViewController(detailView, animated: true)
         }
