@@ -12,7 +12,6 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     var keyword: String = "maple"
     var photos: [Photo] = []
     var selectedPhoto: Photo?
-    var selectedPosition: Int?
     
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -32,6 +31,9 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         super.viewDidLoad()
         title = "Photos"
         
+        collectionView.delegate = self as? UICollectionViewDelegate
+        collectionView.dataSource = self
+        
         loadColectionView(keyword: keyword)
     }
     
@@ -46,21 +48,6 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         }
     }
     
-    // When a button on a cell is selected
-    func onCellTapped(position: Int) {
-        // Set selected menu data
-        selectedPhoto = photos[position]
-        
-        if selectedPhoto != nil {
-            // Go to recipe view and pass recipe data
-            let storyboard: UIStoryboard = self.storyboard!
-            let detailView = storyboard.instantiateViewController(withIdentifier: "detail")
-                             as! DetailViewController
-            detailView.selectedPhoto = selectedPhoto
-            self.navigationController?.pushViewController(detailView, animated: true)
-        }
-    }
-    
     // Number of sections
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
@@ -70,12 +57,12 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
     }
-
+    
     // Display each cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:CustomCell =
             collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath)
-            as! CustomCell
+                as! CustomCell
         
         let photo = photos[indexPath.row]
         
@@ -91,6 +78,26 @@ class ViewController: UIViewController, UICollectionViewDataSource {
             cell.imageView.image = UIImage(data: data!)!
         }
         
+        // Delegate
+        selectedPhoto = photos[indexPath.row]
         return cell
+    }
+    
+    // When a cell is selected
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedPhoto = photos[indexPath.row]
+        if selectedPhoto != nil {
+            // Call segue
+            performSegue(withIdentifier: "toDetailViewController", sender: nil)
+        }
+    }
+    
+    // Prepare segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
+        if (segue.identifier == "toDetailViewController") {
+            let detailVC: DetailViewController = (segue.destination as? DetailViewController)!
+            // Set photo data
+            detailVC.selectedPhoto = self.selectedPhoto
+        }
     }
 }

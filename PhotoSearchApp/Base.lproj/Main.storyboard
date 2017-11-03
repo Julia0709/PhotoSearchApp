@@ -118,6 +118,7 @@
                         <outlet property="collectionView" destination="oW9-aH-4nd" id="n6L-6z-QcB"/>
                         <outlet property="searchButton" destination="PwA-bk-HYs" id="tDE-Rv-QDu"/>
                         <outlet property="searchTextField" destination="cgz-JK-oQp" id="dps-3U-fTs"/>
+                        <segue destination="t2p-Yy-ITc" kind="showDetail" identifier="toDetailViewController" id="kwh-EE-8yj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -147,6 +148,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="01P-uX-lkP"/>
                     </view>
+                    <connections>
+                        <outlet property="view" destination="DP8-La-gID" id="hma-Rs-dM5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vLG-De-SAs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
