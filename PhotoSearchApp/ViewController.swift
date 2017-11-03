@@ -12,6 +12,7 @@ class ViewController: UIViewController, UICollectionViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Photos"
     }
     
     // Number of sections
