@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A33F2EC11FABCBEF002F45D0 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33F2EC01FABCBEF002F45D0 /* CustomCell.swift */; };
 		A33F2EC31FABDB74002F45D0 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33F2EC21FABDB74002F45D0 /* APIKeys.swift */; };
+		A33F2ECB1FABF649002F45D0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33F2EC91FABF649002F45D0 /* Alamofire.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		A33F2ECC1FABF649002F45D0 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33F2ECA1FABF649002F45D0 /* SwiftyJSON.framework */; };
 		A3D34CB61FAB7A9D00201FD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D34CB51FAB7A9D00201FD7 /* AppDelegate.swift */; };
 		A3D34CB81FAB7A9D00201FD7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D34CB71FAB7A9D00201FD7 /* ViewController.swift */; };
 		A3D34CBB1FAB7A9D00201FD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3D34CB91FAB7A9D00201FD7 /* Main.storyboard */; };
@@ -39,6 +41,8 @@
 /* Begin PBXFileReference section */
 		A33F2EC01FABCBEF002F45D0 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		A33F2EC21FABDB74002F45D0 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		A33F2EC91FABF649002F45D0 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		A33F2ECA1FABF649002F45D0 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		A3D34CB21FAB7A9D00201FD7 /* PhotoSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3D34CB51FAB7A9D00201FD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3D34CB71FAB7A9D00201FD7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A33F2ECB1FABF649002F45D0 /* Alamofire.framework in Frameworks */,
+				A33F2ECC1FABF649002F45D0 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +86,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A33F2EC81FABF649002F45D0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A33F2EC91FABF649002F45D0 /* Alamofire.framework */,
+				A33F2ECA1FABF649002F45D0 /* SwiftyJSON.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A3D34CA91FAB7A9D00201FD7 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +102,7 @@
 				A3D34CCC1FAB7A9E00201FD7 /* PhotoSearchAppTests */,
 				A3D34CD71FAB7A9E00201FD7 /* PhotoSearchAppUITests */,
 				A3D34CB31FAB7A9D00201FD7 /* Products */,
+				A33F2EC81FABF649002F45D0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -144,6 +160,7 @@
 				A3D34CAE1FAB7A9D00201FD7 /* Sources */,
 				A3D34CAF1FAB7A9D00201FD7 /* Frameworks */,
 				A3D34CB01FAB7A9D00201FD7 /* Resources */,
+				A33F2ECD1FABF666002F45D0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -262,6 +279,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A33F2ECD1FABF666002F45D0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A3D34CAE1FAB7A9D00201FD7 /* Sources */ = {
@@ -440,6 +475,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = PhotoSearchApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swift.PhotoSearchApp;
@@ -455,6 +494,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = PhotoSearchApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swift.PhotoSearchApp;
