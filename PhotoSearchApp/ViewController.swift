@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource {
+    var keyword: String = "apple"
     var photos: [Photo] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -16,13 +17,18 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     @IBOutlet weak var searchButton: UIButton!
     
     @IBAction func searchButton(_ sender: UIButton) {
+        self.photos = []
+        keyword = searchTextField.text!
+        FlickrAPI.getPhotos(keyword: keyword) { (photos) in
+            self.photos = photos
+            self.collectionView.reloadData()
+        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Photos"
 
-        let keyword = "kitty"
         FlickrAPI.getPhotos(keyword: keyword) { (photos) in
             self.photos = photos
             self.collectionView.reloadData()

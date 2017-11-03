@@ -17,6 +17,7 @@ class FlickrAPI {
     // API Request
     static func getPhotos(keyword: String, completion: @escaping(([Photo]) -> Void)) {
         let requestUrl = "https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&nojsoncallback=1&api_key=\(apiKeys.flickrAPIKey)&tags=\(keyword)"
+        photos = []
         Alamofire.request(requestUrl)
             .responseJSON { response in
                 guard let object = response.result.value else {
