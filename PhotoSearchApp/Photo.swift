@@ -8,10 +8,10 @@
 
 struct Photo {
     var farm: Int!
-    var id: Int!
-    var ispublic: Int?
-    var owner: String?
-    var secret: Int!
-    var server: Int?
+    var id: String!
+    var ispublic: Int!
+    var owner: String!
+    var secret: String!
+    var server: String!
     var title: String!
 }

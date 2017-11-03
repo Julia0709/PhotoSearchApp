@@ -26,11 +26,11 @@ class FlickrAPI {
                 let body = JSON(object)
                 for (_, b) in body["photos"]["photo"] {
                     let farm = b["farm"].int
-                    let id = b["id"].int
+                    let id = b["id"].string
                     let ispublic = b["ispublic"].int
                     let owner = b["owner"].string
-                    let secret = b["secret"].int
-                    let server = b["server"].int
+                    let secret = b["secret"].string
+                    let server = b["server"].string
                     let title = b["title"].string
                     let photo: Photo = Photo(farm: farm, id: id, ispublic: ispublic, owner: owner, secret: secret, server: server, title: title)
                     self.photos.append(photo)
