@@ -9,13 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource {
+    @IBOutlet weak var collectionView: UICollectionView!
+
     var photos: [Photo] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Photos"
-        
-        FlickrAPI.getPhotos()
+
+        FlickrAPI.getPhotos { (photos) in
+            self.photos = photos
+            self.collectionView.reloadData()
+        }
     }
     
     // Number of sections
@@ -25,13 +30,14 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     
     // Number of cells
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return photos.count
     }
 
     // Display each cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:CustomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! CustomCell
-        cell.titleLabel.text = "title\(indexPath.row)"
+        let photo = photos[indexPath.row]
+        cell.titleLabel.text = photo.title
         cell.imageView.image = UIImage(named: "no_image.png")
         return cell
     }

@@ -15,7 +15,7 @@ class FlickrAPI {
     static var photos: [Photo] = []
 
     // API Request
-    static func getPhotos() {
+    static func getPhotos(completion: @escaping(([Photo]) -> Void)) {
         let requestUrl = "https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&nojsoncallback=1&api_key=\(apiKeys.flickrAPIKey)&tags=cat"
         Alamofire.request(requestUrl)
             .responseJSON { response in
@@ -35,6 +35,7 @@ class FlickrAPI {
                     let photo: Photo = Photo(farm: farm, id: id, ispublic: ispublic, owner: owner, secret: secret, server: server, title: title)
                     self.photos.append(photo)
                 }
+                completion(self.photos)
         }
     }
 }
