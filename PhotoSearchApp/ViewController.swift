@@ -7,13 +7,26 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController, UICollectionViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Photos"
+        
+        getPhotos()
     }
+    
+    // API Request
+    func getPhotos() {
+        let requestUrl = "https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&nojsoncallback=1&api_key=\(apiKeys.flickerAPIKey)&tags=cat"
+        Alamofire.request(requestUrl)
+            .responseJSON { response in
+                print(response.result.value)
+        }
+    }
+    
     
     // Number of sections
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
