@@ -14,6 +14,7 @@
 		A33F2ECF1FAC2B42002F45D0 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33F2ECE1FAC2B42002F45D0 /* Photo.swift */; };
 		A33F2ED11FAC3F69002F45D0 /* FlickrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33F2ED01FAC3F69002F45D0 /* FlickrAPI.swift */; };
 		A33F2ED61FACA4B4002F45D0 /* Generaters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33F2ED51FACA4B4002F45D0 /* Generaters.swift */; };
+		A33F9CE21FAD3DBB00C6C17E /* ImageResize.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33F9CE11FAD3DBB00C6C17E /* ImageResize.swift */; };
 		A350679F1FACF42700F04F16 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A350679E1FACF42700F04F16 /* DetailViewController.swift */; };
 		A3D34CB61FAB7A9D00201FD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D34CB51FAB7A9D00201FD7 /* AppDelegate.swift */; };
 		A3D34CB81FAB7A9D00201FD7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D34CB71FAB7A9D00201FD7 /* ViewController.swift */; };
@@ -50,6 +51,7 @@
 		A33F2ECE1FAC2B42002F45D0 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		A33F2ED01FAC3F69002F45D0 /* FlickrAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrAPI.swift; sourceTree = "<group>"; };
 		A33F2ED51FACA4B4002F45D0 /* Generaters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generaters.swift; sourceTree = "<group>"; };
+		A33F9CE11FAD3DBB00C6C17E /* ImageResize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResize.swift; sourceTree = "<group>"; };
 		A350679E1FACF42700F04F16 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A3D34CB21FAB7A9D00201FD7 /* PhotoSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3D34CB51FAB7A9D00201FD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				A33F2ED51FACA4B4002F45D0 /* Generaters.swift */,
+				A33F9CE11FAD3DBB00C6C17E /* ImageResize.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				A33F2ED11FAC3F69002F45D0 /* FlickrAPI.swift in Sources */,
 				A3D34CB81FAB7A9D00201FD7 /* ViewController.swift in Sources */,
 				A33F2ED61FACA4B4002F45D0 /* Generaters.swift in Sources */,
+				A33F9CE21FAD3DBB00C6C17E /* ImageResize.swift in Sources */,
 				A33F2EC31FABDB74002F45D0 /* APIKeys.swift in Sources */,
 				A3D34CB61FAB7A9D00201FD7 /* AppDelegate.swift in Sources */,
 				A33F2EC11FABCBEF002F45D0 /* CustomCell.swift in Sources */,

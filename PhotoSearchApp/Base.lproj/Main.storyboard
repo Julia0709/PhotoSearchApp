@@ -118,7 +118,7 @@
                         <outlet property="collectionView" destination="oW9-aH-4nd" id="n6L-6z-QcB"/>
                         <outlet property="searchButton" destination="PwA-bk-HYs" id="tDE-Rv-QDu"/>
                         <outlet property="searchTextField" destination="cgz-JK-oQp" id="dps-3U-fTs"/>
-                        <segue destination="t2p-Yy-ITc" kind="showDetail" identifier="toDetailViewController" id="kwh-EE-8yj"/>
+                        <segue destination="t2p-Yy-ITc" kind="push" identifier="toDetailViewController" id="kwh-EE-8yj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -133,22 +133,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RH0-eo-eWg">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RH0-eo-eWg">
+                                <rect key="frame" x="20" y="136" width="335" height="511"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DP8-La-gID">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DP8-La-gID">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="511"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="DP8-La-gID" firstAttribute="top" secondItem="RH0-eo-eWg" secondAttribute="top" id="AqP-6M-0wo"/>
+                                    <constraint firstItem="DP8-La-gID" firstAttribute="leading" secondItem="RH0-eo-eWg" secondAttribute="leading" id="iMJ-jG-Nv3"/>
+                                    <constraint firstAttribute="bottom" secondItem="DP8-La-gID" secondAttribute="bottom" id="mE7-t7-ZXE"/>
+                                    <constraint firstAttribute="trailing" secondItem="DP8-La-gID" secondAttribute="trailing" id="yQX-86-r1X"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="01P-uX-lkP" firstAttribute="trailing" secondItem="RH0-eo-eWg" secondAttribute="trailing" constant="20" id="ItF-mh-GdK"/>
+                            <constraint firstItem="RH0-eo-eWg" firstAttribute="top" secondItem="01P-uX-lkP" secondAttribute="top" constant="20" id="UIC-ck-5US"/>
+                            <constraint firstItem="RH0-eo-eWg" firstAttribute="leading" secondItem="01P-uX-lkP" secondAttribute="leading" constant="20" id="g8L-W7-6ql"/>
+                            <constraint firstItem="RH0-eo-eWg" firstAttribute="bottom" secondItem="01P-uX-lkP" secondAttribute="bottom" constant="-20" id="w0q-T8-2Os"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="01P-uX-lkP"/>
                     </view>
+                    <navigationItem key="navigationItem" id="gl6-xF-A4p"/>
                     <connections>
+                        <outlet property="imageView" destination="DP8-La-gID" id="L1Q-cq-uQG"/>
                         <outlet property="view" destination="DP8-La-gID" id="hma-Rs-dM5"/>
                     </connections>
                 </viewController>

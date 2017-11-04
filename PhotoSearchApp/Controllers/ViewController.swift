@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDataSource {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     var keyword: String = "maple"
     var photos: [Photo] = []
     var selectedPhoto: Photo?
@@ -29,9 +29,8 @@ class ViewController: UIViewController, UICollectionViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Photos"
         
-        collectionView.delegate = self as? UICollectionViewDelegate
+        collectionView.delegate = self
         collectionView.dataSource = self
         
         loadColectionView(keyword: keyword)
@@ -39,6 +38,7 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     
     // Load or update collection view
     func loadColectionView(keyword: String) {
+        title = keyword
         FlickrAPI.getPhotos(keyword: keyword) { (photos) in
             self.photos = photos
             self.collectionView.reloadData()

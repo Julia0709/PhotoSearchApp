@@ -9,21 +9,23 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-    
     var selectedPhoto: Photo!
 
+    @IBOutlet weak var imageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // imageView
+        let screenWidth = UIScreen.main.bounds.size.width
+        imageView.frame.size.width = screenWidth
+        imageView.contentMode = UIViewContentMode.scaleAspectFit
+        
+        imageView.image = UIImage(named: "no_image.png")
+        let url = URL(string: Generaters.generateImageUrl(photo: selectedPhoto, size: "b"))
+        if url != nil {
+            let data = try? Data(contentsOf: url!)
+            imageView.image = UIImage(data: data!)!
+        }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
